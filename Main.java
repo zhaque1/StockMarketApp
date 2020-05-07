@@ -6,6 +6,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+/*TODO:
+	1.READ STOCK DATA IN TO POPULATE ARRAYLIST TO ADD TO TABLE
+	2.OBSERVER PATTERN (UPDATE USER PRO, ADVICE)
+	3.ADD ACTIONLISTNERS TO ADD BTN & COMBOBOX
+	4. REFINE GUI
+*/
 public class Main {
 
 	public static void main(String[] args) {
