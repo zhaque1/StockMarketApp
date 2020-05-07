@@ -10,14 +10,14 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+
 		ArrayList <Stock> stockList = new ArrayList<Stock>();
 		Frame frame = new Frame();
 		Stock temp = new Stock();
-		
+
 		URL url = null;
 		try {
-			url = new URL("https://financialmodelingprep.com/api/v3/search?exchange=NASDAQ");
+			url = new URL("https://financialmodelingprep.com/api/v3/quote/AAPL");
 		} catch (MalformedURLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -29,16 +29,16 @@ public class Main {
 		    if(line.equals("[ {")) {
 		    	continue;
 		    }
-		    
+
 		    else if(line.equals("} ]")) {
 		    	continue;
 		    }
-		    
+
 		    else{
 			    System.out.println(line);
-			    
+
 		    }
-		    
+
 		  }
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
@@ -47,8 +47,8 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
+
 	}
 
 }
