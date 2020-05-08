@@ -1,6 +1,8 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class TopBar extends JPanel{
+public class TopBar extends JPanel implements ActionListener{
 
 	JButton search;
 	JComboBox<?> adviceCB;
@@ -32,6 +34,15 @@ public class TopBar extends JPanel{
 		add(selStratLabel);
 		add(adviceCB);
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		JComboBox<String> combo = (JComboBox<String>) e.getSource();
+				String selectedStrat = (String) combo.getSelectedItem();
+				// TODO: CHANGE THIS SO it saves selectedStrat to something that can be accessed
+				System.out.println(selectedStrat);
 	}
 
 }

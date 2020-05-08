@@ -9,7 +9,7 @@ import java.util.ArrayList;
 /*TODO:
 	1.READ STOCK DATA IN TO POPULATE ARRAYLIST TO ADD TO TABLE
 	2.OBSERVER PATTERN (UPDATE USER PRO, ADVICE)
-	3.ADD ACTIONLISTNERS TO ADD BTN 
+	3.ADD ACTIONLISTNERS TO ADD BTN
 	4. REFINE GUI
 */
 public class Main {
@@ -23,7 +23,7 @@ public class Main {
 
 		URL url = null;
 		try {
-			url = new URL("https://financialmodelingprep.com/api/v3/quote/AAPL");
+			url = new URL("https://financialmodelingprep.com/api/v3/search?query=&limit=100&exchange=NASDAQ");
 		} catch (MalformedURLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
