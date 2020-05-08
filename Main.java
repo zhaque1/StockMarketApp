@@ -20,6 +20,8 @@ public class Main {
 		ArrayList <Stock> stockList = new ArrayList<Stock>();
 		Frame frame = new Frame();
 		Stock temp = new Stock();
+		ArrayList <String> symbolList = new ArrayList<String>();
+		String temp1;
 
 		URL url = null;
 		try {
@@ -34,9 +36,12 @@ public class Main {
 					if(line.equals("[ {") || (line.equals("} ]"))  || (line.equals("}, {"))){
 							continue;
 					}
-					else{
+					else if(line.contains("\"symbol\" : ")){
 						System.out.println(line);
-
+						//symbolList.add(line);
+					}
+					else{
+						continue;
 					}
 		    }
 
@@ -48,7 +53,12 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+	//
+	// 	for(int i = 0; i < symbolList.size(); i++)
+	//
+	// 	System.out.println(symbolList.get(i));
+	//
+	// }
 
 	}
 
