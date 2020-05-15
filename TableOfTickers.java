@@ -77,7 +77,7 @@ public class TableOfTickers extends JPanel implements Runnable{
 		                "data", "data", "data","data","data","data","data" });
 		}*/
 		table.setPreferredScrollableViewportSize(table.getPreferredSize());
-		table.setFillsViewportHeight(false);
+		table.setFillsViewportHeight(true);
 		table.setDefaultEditor(Object.class, null);
 		add(label, BorderLayout.NORTH);
 		add(new JScrollPane(table), BorderLayout.CENTER);

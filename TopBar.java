@@ -8,9 +8,9 @@ public class TopBar extends JPanel{
 	JButton search;
 	JButton remove;
 	JComboBox<?> adviceCB;
-	String stratList[] = {"One", "Alt", "Random", "Terrible"};
+	String stratList[] = {"Buy High", "Sell High", "Sell Random", "Terrible Strategy"};
 	JTextField searchAreaTA;
-	JLabel selStratLabel,searchAreaLabel;
+	JLabel selStratLabel,searchAreaLabel,stratLabel;
   StockList stockList;
 	Frame parent;
 	public TopBar(StockList list, Frame parent) {
@@ -19,6 +19,7 @@ public class TopBar extends JPanel{
 		search = new JButton("ADD");
 		remove = new JButton("REMOVE");
 		searchAreaTA = new JTextField(6);
+		stratLabel = new JLabel("Buy when Change% > 5, else sell");
 		//searchAreaTA = new JTextArea(1,6);
 		search.addActionListener(new ActionListener() {
 			@Override
@@ -44,7 +45,7 @@ public class TopBar extends JPanel{
 			}
 		});
 		selStratLabel = new JLabel("Select Investment Strategy");
-		searchAreaLabel = new JLabel("ADD Stock");
+		searchAreaLabel = new JLabel("Search Stock");
 		adviceCB = new JComboBox<Object>(stratList);
 		adviceCB.addActionListener(new ActionListener() {
 			@Override
@@ -54,17 +55,21 @@ public class TopBar extends JPanel{
 		        String selectedStrat = (String) combo.getSelectedItem();
 		        // TODO: CHANGE THIS SO it saves selectedStrat to something that can be accessed
 		        switch(selectedStrat){
-							case "One":
+							case "Buy High":
 								parent.updateUserStrat(new OneStrategy());
+								stratLabel.setText("Buy when Change% > 5, else sell");
 								break;
-							case "Alt":
+							case "Sell High":
 								parent.updateUserStrat(new AlternateStrategy());
+								stratLabel.setText("Buy when Change% < 5, else sell");
 								break;
-							case "Random":
+							case "Sell Random":
 								parent.updateUserStrat(new RandomStrategy());
+								stratLabel.setText("Buys and sells randomly");
 								break;
-							case "Terrible":
+							case "Terrible Strategy":
 								parent.updateUserStrat(new TerribleStrategy());
+								stratLabel.setText("Buys if the stock symbol is 3 characters long, else if sells if the stock price < 20, else hold");
 								break;
 							default:
 								break;
@@ -79,6 +84,7 @@ public class TopBar extends JPanel{
 		add(remove);
 		add(selStratLabel);
 		add(adviceCB);
+		add(stratLabel);
 
 	}
 
