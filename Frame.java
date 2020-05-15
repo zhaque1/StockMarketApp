@@ -1,45 +1,47 @@
 import java.awt.BorderLayout;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-
+import javax.swing.BoxLayout;
 
 public class Frame extends JFrame{
-	
-	 BorderLayout layout;
+
+	 BoxLayout layout;
 	 TopBar topbar;
 	 UserPro userPro;
 	 TableOfTickers tot;
 	 JPanel container;
-	 AdviceArea aa;
 	 JScrollPane scrPane;
 
-	
-	public Frame() {
-		
+	public Frame(StockList list) {
+
 		super("Stock Market App");
-	    layout = new BorderLayout(0,10);
-		topbar = new TopBar();
-		tot = new TableOfTickers();
-		userPro = new UserPro();
+		topbar = new TopBar(list, this);
+		tot = new TableOfTickers(list, this);
+		userPro = new UserPro(list);
+		updateUserStrat(new OneStrategy());
 		container = new JPanel();
-		aa = new AdviceArea();
-	
-		setLayout(layout);
+		layout = new BoxLayout(container,BoxLayout.Y_AXIS);
+
+		container.setLayout(layout);
 
 
-		container.add(topbar, BorderLayout.NORTH);
-		container.add(tot, BorderLayout.CENTER);
-		container.add(userPro, BorderLayout.CENTER);
-		container.add(aa, BorderLayout.CENTER);
-		
-		scrPane = new JScrollPane(container);
-		
+		container.add(topbar);
+		container.add(tot);
+		container.add(userPro);
+
+
 		add(container);
-		
+
 		setSize(900,600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 
 	}
-	
+	public void notifyUserPro(){
+		userPro.addData();
+	}
+	public void updateUserStrat(BuySellStockStrat strategy){
+		userPro.setStrategy(strategy);
+	}
+
 }

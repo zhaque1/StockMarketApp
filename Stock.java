@@ -1,10 +1,17 @@
 
 public class Stock {
-	
+
 	public String symbol, name;
-	public double  open, dayHigh, dayLow, prevClose, price, change, changePercentage;
-	public int volume, time;
-	
+	public double  open, dayHigh, dayLow, prevClose, price, change, changePercentage, volume;
+	public int time;
+
+	public Stock(String symbol){
+		this.symbol = symbol;
+	}
+	public Object[] getRow(){
+		Object[] row = {symbol, name, price, open, dayHigh, dayLow, volume, prevClose, change, changePercentage};
+		return row;
+	}
 	public String getSymbol() {
 		return symbol;
 	}
@@ -59,10 +66,10 @@ public class Stock {
 	public void setChangePercentage(double changePercentage) {
 		this.changePercentage = changePercentage;
 	}
-	public int getVolume() {
+	public double getVolume() {
 		return volume;
 	}
-	public void setVolume(int volume) {
+	public void setVolume(double volume) {
 		this.volume = volume;
 	}
 	public int getTime() {
@@ -71,6 +78,6 @@ public class Stock {
 	public void setTime(int time) {
 		this.time = time;
 	}
-	
-	
+
+
 }
